@@ -1,4 +1,4 @@
-﻿Dean Choi & Binu Joyce
+Dean Choi & Binu Joyce
 CIS 545 - Assignment 1 - A Customized Shell
 
 ============================================================================
@@ -49,89 +49,96 @@ If the Makefile is not present, you can compile the executable via gcc in Termin
 
 
 ============================================================================
-*Sample Test Run:
+*Sample Test Run 1:
 
-dechoi@vangogh:~/dechoi/Project3$ ./myexec
+Last login: Thu Jul 12 17:24:10 on ttys000
+Deans-MBP:~ deanchoi$ /Users/deanchoi/CLionProjects/CIS545/Project1/myexec 
 
-Welcome to Dean Choi's customized Linux shell.
+Welcome to Dean and Binu's Inter Process Communication Program.
 
-Project3$ path
+How many child processes do you want to create?
+2
 
-The current path environment is empty. Please add at least one path folder...
+Child Process #1 (pid: 5340) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-Project3$ path + /usr/local/sbin
+Parent Process Loop #1 (pid: 5339) Read Pipe Output:
+- Message from Child 1: RECEIVED
 
-/usr/local/sbin
+Child Process #2 (pid: 5341) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-Project3$ path + /usr/local/bin
+Parent Process Loop #2 (pid: 5339) Read Pipe Output:
+- Message from Child 2: RECEIVED
 
-/usr/local/sbin:/usr/local/bin
 
-Project3$ path
+*Sample Test Run 2:
+Deans-MBP:~ deanchoi$ /Users/deanchoi/CLionProjects/CIS545/Project1/myexec 
 
-/usr/local/sbin:/usr/local/bin
+Welcome to Dean and Binu's Inter Process Communication Program.
 
-Project3$ cd
+How many child processes do you want to create?
+10
 
-$ pwd
+Child Process #1 (pid: 5372) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-/
+Parent Process Loop #1 (pid: 5370) Read Pipe Output:
+- Message from Child 1: RECEIVED
 
-$  cd /home
+Child Process #2 (pid: 5373) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-home$ pwd
+Parent Process Loop #2 (pid: 5370) Read Pipe Output:
+- Message from Child 2: RECEIVED
 
-/home
+Child Process #3 (pid: 5374) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-home$ cd student/dechoi
+Parent Process Loop #3 (pid: 5370) Read Pipe Output:
+- Message from Child 3: RECEIVED
 
-dechoi$ pwd
+Child Process #4 (pid: 5375) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-/home/student/dechoi
+Parent Process Loop #4 (pid: 5370) Read Pipe Output:
+- Message from Child 4: RECEIVED
 
-dechoi$ ls -l
+Child Process #5 (pid: 5376) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-total 3900
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 CIS 265 HW
-drwxr-xr-x 4 dechoi users    4096 Jul  7  2016 cuda-workspace
-drwxr-xr-x 5 dechoi users    4096 Jul 13 08:42 dechoi
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Desktop
--rw-r--r-- 1 dechoi users  181202 Jul 12 19:33 device.pdf
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Documents
-drwxr-xr-x 2 dechoi users    4096 Jan 26 18:22 Downloads
--rw-r--r-- 1 dechoi users    8980 Jul  5  2016 examples.desktop
--rw-r--r-- 1 dechoi users 3457732 Jun 16 16:14 fat12.pdf
--rw-r--r-- 1 dechoi users  111003 Jul 21  2016 jul20.jpg
--rw-r--r-- 1 dechoi users  103278 Jul 21  2016 july18.jpg
--rw-r--r-- 1 dechoi users   54047 Jul 21  2016 july19.jpg
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Music
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Pictures
--rw-r--r-- 1 dechoi users   11573 Jun 16 12:20 project2.html
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Public
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Templates
-drwxr-xr-x 2 dechoi users    4096 Jul  7  2016 Videos
+Parent Process Loop #5 (pid: 5370) Read Pipe Output:
+- Message from Child 5: RECEIVED
 
-dechoi$ ls -l | grep pdf
+Child Process #6 (pid: 5377) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
--rw-r--r-- 1 dechoi users  181202 Jul 12 19:33 device.pdf
--rw-r--r-- 1 dechoi users 3457732 Jun 16 16:14 fat12.pdf
+Parent Process Loop #6 (pid: 5370) Read Pipe Output:
+- Message from Child 6: RECEIVED
 
-dechoi$ ls -l > DeanText
+Child Process #7 (pid: 5378) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-dechoi$ ls
+Parent Process Loop #7 (pid: 5370) Read Pipe Output:
+- Message from Child 7: RECEIVED
 
-CIS 265 HW      Desktop     examples.desktop  july19.jpg     Public
-cuda-workspace  device.pdf  fat12.pdf         Music          Templates
-DeanText.txt    Documents   jul20.jpg         Pictures       Videos
-dechoi          Downloads   july18.jpg        project2.html
+Child Process #8 (pid: 5379) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-dechoi$ grep txt < DeanText
--rw-r--r-- 1 dechoi users       0 Jul 13 08:49 DeanText.txt
+Parent Process Loop #8 (pid: 5370) Read Pipe Output:
+- Message from Child 8: RECEIVED
 
-dechoi$ quit
+Child Process #9 (pid: 5380) Read Pipe Output:
+- Hi, I am your parent from CIS 345
 
-Quitting the shell program...
+Parent Process Loop #9 (pid: 5370) Read Pipe Output:
+- Message from Child 9: RECEIVED
 
+Child Process #10 (pid: 5381) Read Pipe Output:
+- Hi, I am your parent from CIS 345
+
+Parent Process Loop #10 (pid: 5370) Read Pipe Output:
+- Message from Child 10: RECEIVED
 
 ============================================================================
 *Existing Bugs:
