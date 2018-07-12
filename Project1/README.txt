@@ -1,6 +1,5 @@
-Dean Choi
-CSU# 2690159
-CIS 340 - Project 3 - A Customized Shell
+﻿Dean Choi & Binu Joyce
+CIS 545 - Assignment 1 - A Customized Shell
 
 ============================================================================
 *Project Description:
