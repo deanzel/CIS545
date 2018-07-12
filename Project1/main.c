@@ -63,7 +63,7 @@ int main() {
                 char message1[buffsize];
 
                 if (read(fd[2*i][0], message1, buffsize) != -1){
-                    printf("\nChild Process #%d's Read Pipe Output:\n", (i+1));
+                    printf("\nChild Process #%d (pid: %d) Read Pipe Output:\n", (i+1), getpid());
                     printf("%s\n", message1);
                 }
                 else {      //Pipe read failed.
@@ -112,7 +112,7 @@ int main() {
                 char childmsg[buffsize];
                 //Parent Process will read from Pipe2 the child's message
                 if (read(fd[2*i + 1][0], childmsg, buffsize) != -1){
-                    printf("\nParent Process Loop #%d's Read Pipe Output:\n", (i+1));
+                    printf("\nParent Process Loop #%d (pid: %d) Read Pipe Output:\n", (i+1), getpid());
                     printf("%s\n", childmsg);
                 }
                 else {      //Pipe read failed.
