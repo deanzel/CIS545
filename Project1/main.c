@@ -32,7 +32,7 @@ int main() {
         //pipes for each Child process to have 2-way communication with the Parent Process. We'll statically allocate the
         //memory for the filedescriptor 2d array of the pipes.
 
-        int **fd = calloc((size_t) numChild, sizeof(int *));
+        int **fd = calloc((size_t) 2*numChild, sizeof(int *));
         int i;
         for (i = 0; i < 2*numChild; i++) {
             fd[i] = calloc(2, sizeof(int));
