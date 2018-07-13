@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <math.h>
+#include <sys/wait.h>
 
 int numChild = 2;   //default number of child processes
 
