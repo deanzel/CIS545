@@ -12,12 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef27862f-fd4c-49e7-a919-a87b27195c1b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myexec" beforeDir="false" afterPath="$PROJECT_DIR$/myexec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project2/cmake-build-debug/CMakeFiles/Project2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/cmake-build-debug/CMakeFiles/Project2.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project2/cmake-build-debug/Project2" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/cmake-build-debug/Project2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project2/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project2/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project2/myexec" beforeDir="false" afterPath="$PROJECT_DIR$/../Project2/myexec" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -137,15 +135,16 @@
       <workItem from="1531410372580" duration="62000" />
       <workItem from="1531425494357" duration="287000" />
       <workItem from="1532695913152" duration="140000" />
-      <workItem from="1533005242390" duration="589000" />
+      <workItem from="1533005242390" duration="959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18414000" />
+    <option name="totallyTimeSpent" value="18784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="628" y="23" width="1530" height="1363" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1503268" />
       <window_info anchor="bottom" id="TODO" order="6" />
