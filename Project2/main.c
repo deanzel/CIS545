@@ -19,29 +19,29 @@ struct Bounds {     //simple struct for the lower and upper bounds of the range 
     int start, end;
 };
 
-
-void *sum_of_sqrt(void *bounds) {      //Return sum of square roots from int bounds.start to int bounds.end - 1
+//Return sum of square roots from int bounds.start to int bounds.end - 1. Form of void* (void *) function for threads.
+void *sum_of_sqrt(void *bounds) {
     //Cast the void *bounds pointer to the struct pointer
-    struct Bounds *b = (struct Bounds *) bounds;
+    struct Bounds *b = bounds;
     double sum = 0.0;
 
     //calculate local sum of square roots
-    for (int i = (int) &b->start; i < (int) &b->end; i++) {
+    for (int i = b->start; i < b->end; i++) {
         sum += sqrt(i);
     }
 
     pthread_mutex_lock(&grand_sum_lock);   //acquiring lock
-    grand_sum += sum;                   //updating grand_sum by adding t
-    pthread_mutex_unlock(&grand_sum_lock); //lock release;
+    grand_sum += sum;                      //updating grand_sum with the local sum
+    pthread_mutex_unlock(&grand_sum_lock); //lock release
 
     return NULL;
 }
 
 
-//Make it a command line input
+//Takes in the command line arguments directly from the argc and argv[]
 int main(int argc, char *argv[]) {
 
-    double grand_sum = 0;
+    grand_sum = 0;
     pthread_t t1, t2;
 
     if (argc != 2){     //Have more than 2 arguments (or only 1) in command line call
@@ -66,41 +66,39 @@ int main(int argc, char *argv[]) {
             printf("\nThe input number is not a multiple of 3...\n");
             exit(3);
         }
-        else        //Integer is a multiple of 3 so we can continue
+        else        //Integer is a multiple of 3 so we can continue and calculate
         {
-
-            printf("\n%d is the number!!!!!\n", n);
 
             pthread_mutex_init(&grand_sum_lock, 0);  //mutex initialization
 
+            //Calculate the starting points and place them in the global array start_points
             start_points[0] = 1;
             start_points[1] = n/3+1;
             start_points[2] = 2*n/3+1;
             start_points[3] = n+1;
 
+            //Initialize the Bounds struct variables that will be fed into the sum_of_sqrt function
             struct Bounds bounds1 = { .start = start_points[0], .end = start_points[1]};
             struct Bounds bounds2 = { .start = start_points[1], .end = start_points[2]};
             struct Bounds bounds3 = { .start = start_points[2], .end = start_points[3]};
 
+            //Create two child threads that will run the sum_of_sqrt functions on their specific bounds
+            pthread_create(&t1, NULL, sum_of_sqrt, (void *) &bounds1);  //lower bounds 1 to n/3
+            pthread_create(&t2, NULL, sum_of_sqrt, (void *) &bounds2);  //medium bounds n/3+1 to 2n/3
 
-            pthread_create(&t1, NULL, sum_of_sqrt, (void *) &bounds1);
-            pthread_create(&t2, NULL, sum_of_sqrt, (void *) &bounds2);
-
-            sum_of_sqrt(&bounds3);
-            pthread_join(t1, NULL);
-            pthread_join(t2, NULL);
+            sum_of_sqrt(&bounds3);      //parent process running upper bounds 2n/3+1 to n
+            pthread_join(t1, NULL);     //parent process will wait for thread1 to terminate
+            pthread_join(t2, NULL);     //parent process will wait for thread2 to terminate
 
 
-            printf("\nsum of square roots: %lf \n", grand_sum);
-            pthread_mutex_destroy(&grand_sum_lock);
+            //Print the global variable grand_sum after all threads have finished execution
+            printf("sum of square roots: %f\n", grand_sum);
+            pthread_mutex_destroy(&grand_sum_lock);     //destroy mutex
         }
 
-        
     }
 
 
-
   return 0;
-  
-  
+
 }
