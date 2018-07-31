@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     pthread_t t1, t2;
 
     if (argc != 2){     //Have more than 2 arguments (or only 1) in command line call
-        printf("\nThat is the incorrect number of command line arguments...\n");
+        printf("That is the incorrect number of command line arguments...\n");
         exit(1);
 
     }
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
         //Check if the 2nd argument string is an integer
         for (int i=0; i < strlen(argv[1]); i++) {
             if (!isdigit(argv[1][i])) {     //Checks each char to see if it is numeric digit; if not, error exit
-                printf("\nThe command line input is not a number...\n");
+                printf("The command line input is not a number...\n");
                 exit(2);
             }
         }
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 
         if (n%3 != 0)
         {
-            printf("\nThe input number is not a multiple of 3...\n");
+            printf("The input number is not a multiple of 3...\n");
             exit(3);
         }
         else        //Integer is a multiple of 3 so we can continue and calculate
@@ -83,10 +83,10 @@ int main(int argc, char *argv[]) {
             struct Bounds bounds3 = { .start = start_points[2], .end = start_points[3]};
 
             //Create two child threads that will run the sum_of_sqrt functions on their specific bounds
-            pthread_create(&t1, NULL, sum_of_sqrt, (void *) &bounds1);  //lower bounds 1 to n/3
-            pthread_create(&t2, NULL, sum_of_sqrt, (void *) &bounds2);  //medium bounds n/3+1 to 2n/3
+            pthread_create(&t1, NULL, sum_of_sqrt, (void *) &bounds2);  //lower bounds 1 to n/3
+            pthread_create(&t2, NULL, sum_of_sqrt, (void *) &bounds3);  //medium bounds n/3+1 to 2n/3
 
-            sum_of_sqrt(&bounds3);      //parent process running upper bounds 2n/3+1 to n
+            sum_of_sqrt(&bounds1);      //parent process running upper bounds 2n/3+1 to n
             pthread_join(t1, NULL);     //parent process will wait for thread1 to terminate
             pthread_join(t2, NULL);     //parent process will wait for thread2 to terminate
 
