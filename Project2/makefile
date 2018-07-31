@@ -1,2 +1,2 @@
 myexec: main.c
-	gcc -o myexec main.c -lm -lpthread
+	gcc -o myexec main.c -I.

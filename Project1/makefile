@@ -1,2 +1,2 @@
 myexec: main.c
-	gcc -o myexec main.c -I. -lm
+	gcc -o myexec main.c -I.
