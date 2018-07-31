@@ -26,7 +26,8 @@ void *sum_of_sqrt(void *bounds) {
     double sum = 0.0;
 
     //calculate local sum of square roots
-    for (int i = b->start; i < b->end; i++) {
+    int i;
+    for (i = b->start; i < b->end; i++) {
         sum += sqrt(i);
     }
 
@@ -51,7 +52,8 @@ int main(int argc, char *argv[]) {
     }
     else {      //Have exactly 2 arguments
         //Check if the 2nd argument string is an integer
-        for (int i=0; i < strlen(argv[1]); i++) {
+        int i;
+        for (i=0; i < strlen(argv[1]); i++) {
             if (!isdigit(argv[1][i])) {     //Checks each char to see if it is numeric digit; if not, error exit
                 printf("The command line input is not a number...\n");
                 exit(2);

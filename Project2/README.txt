@@ -17,7 +17,9 @@ It comes with an accompanying Makefile in the project folder. To compile the “
 
 If the Makefile is not present, you can compile the executable via gcc in Terminal with the following command:
 
-	gcc -o myexec main.c -I.
+	gcc -o myexec main.c -I. -lm -lpthread
+
+“-lm” and “-lpthread” options are to include the math and pthread libraries in our executable binary when compiling via GCC.
 
 ============================================================================
 *Running Instructions:
@@ -31,32 +33,33 @@ If you do not have the correct number of command line arguments, or if the numbe
 
 ***************************  Sample Test Run:  ***************************
 
-Deans-MacBook-Pro:Project2 deanchoi$ make
-gcc -o myexec main.c -I.
+verdi:~/CIS545% make
+gcc -o myexec main.c -I. -lm -lpthread
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 9
+verdi:~/CIS545% ./myexec 9
 sum of square roots: 19.306001
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 3
+verdi:~/CIS545% ./myexec 3
 sum of square roots: 4.146264
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 9999
+verdi:~/CIS545% ./myexec 30
+sum of square roots: 112.082845
+
+verdi:~/CIS545% ./myexec 9999
 sum of square roots: 666616.459197
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 18
-sum of square roots: 52.834943
-
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 27
-sum of square roots: 95.928952
-
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 31
+verdi:~/CIS545% ./myexec 31
 The input number is not a multiple of 3...
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec 30 3
+verdi:~/CIS545% ./myexec 30 3
 That is the incorrect number of command line arguments...
 
-Deans-MacBook-Pro:Project2 deanchoi$ ./myexec pizza
+verdi:~/CIS545% ./myexec pizza
 The command line input is not a number...
+
+verdi:~/CIS545% ./myexec 99
+sum of square roots: 661.462947
+
 
 ============================================================================
 *Existing Bugs: No known bugs 
